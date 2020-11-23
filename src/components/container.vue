@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <!-- ヘッダー -->
+    <!-- ヘッダー テスト-->
     <headder v-bind:is-serch-btn-hidden="isSerchBtnHidden" v-on:openSearchOverlay="openSearchOverlay"></headder>
     <!-- カードりすと -->
     <cardlist v-bind:filtered-card-list="filteredCardList" v-on:openPicture="openPicture"></cardlist>
