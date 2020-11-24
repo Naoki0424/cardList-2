@@ -39,7 +39,6 @@ export default {
 .cardlist {
   border-radius: 10px;
   margin: 5px 0px;
-  height: 200px;
   text-align: center;
   cursor: pointer;
   background-size: 100% 100%;
@@ -53,6 +52,9 @@ export default {
   .cardlist-area {
     grid-template-columns: repeat(auto-fill, 50%);
   }
+  .cardlist {
+    height: 250px;
+  }
 }
 
 /* タブレット想定 */
@@ -61,6 +63,9 @@ export default {
     width: 600px;
     grid-template-columns: repeat(4, 150px);
   }
+  .cardlist {
+    height: 200px;
+  }
 }
 
 /* PC想定 */
@@ -68,6 +73,9 @@ export default {
   .cardlist-area {
     width: 850px;
     grid-template-columns: repeat(5, 150px);
+  }
+  .cardlist {
+    height: 200px;
   }
   .cardlist:hover {
     animation-name: cardHoberAnimation;
