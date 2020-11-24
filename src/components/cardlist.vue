@@ -32,27 +32,43 @@ export default {
 
 <style scoped>
 .cardlist-area {
-  display: flex;
-  width: 850px;
-  flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
+  display: grid;
 }
 .cardlist {
   border-radius: 10px;
-  margin: 5px 10px;
-  width: 150px;
+  margin: 5px 0px;
   height: 200px;
   text-align: center;
   cursor: pointer;
   background-size: 100% 100%;
   box-shadow: 10px 10px 15px -10px;
   transform-style: preserve-3d;
-  perspective: 600px;
+  perspective: 1000px;
 }
 
-/* PCのみ */
+/* スマホ想定 */
+@media only screen and (max-width: 599px) {
+  .cardlist-area {
+    grid-template-columns: repeat(auto-fill, 50%);
+  }
+}
+
+/* タブレット想定 */
+@media only screen and (min-width: 600px) and (max-width: 1279px) {
+  .cardlist-area {
+    width: 600px;
+    grid-template-columns: repeat(4, 150px);
+  }
+}
+
+/* PC想定 */
 @media only screen and (min-width:1280px) {
+  .cardlist-area {
+    width: 850px;
+    grid-template-columns: repeat(5, 150px);
+  }
   .cardlist:hover {
     animation-name: cardHoberAnimation;
     animation-duration: 0.2s;
@@ -70,5 +86,6 @@ export default {
     }
   }
 }
+
 
 </style>

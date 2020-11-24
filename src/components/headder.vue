@@ -10,7 +10,19 @@
 <script>
 export default {
   name: 'headder',
-  props: ['isSerchBtnHidden']
+  props: ['isSerchBtnHidden'],
+  data: function () {
+    return {
+      testW: 0,
+      testH: 0
+    }
+  },
+  created: function () {
+    this.testH = window.innerHeight
+    this.testW = window.innerzWidth
+  // ]    this.testH = window.outerHeight
+  //     this.testW = window.outerWidth
+  }
 }
 </script>
 
