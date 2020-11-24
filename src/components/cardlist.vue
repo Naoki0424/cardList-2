@@ -32,9 +32,9 @@ export default {
 
 <style scoped>
 .cardlist-area {
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center;
   display: grid;
+  /* background-color: #AAAAAA; */
 }
 .cardlist {
   border-radius: 10px;
@@ -60,7 +60,6 @@ export default {
 /* タブレット想定 */
 @media only screen and (min-width: 600px) and (max-width: 1279px) {
   .cardlist-area {
-    width: 600px;
     grid-template-columns: repeat(4, 150px);
   }
   .cardlist {
@@ -71,7 +70,6 @@ export default {
 /* PC想定 */
 @media only screen and (min-width:1280px) {
   .cardlist-area {
-    width: 850px;
     grid-template-columns: repeat(5, 150px);
   }
   .cardlist {

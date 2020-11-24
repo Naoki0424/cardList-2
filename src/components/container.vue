@@ -3,7 +3,7 @@
     <!-- ヘッダー -->
     <headder v-bind:is-serch-btn-hidden="isSerchBtnHidden" v-on:openSearchOverlay="openSearchOverlay"></headder>
     <!-- カードりすと -->
-    <cardlist v-bind:filtered-card-list="filteredCardList" v-on:openPicture="openPicture"></cardlist>
+    <cardlist class="container-cardlist" v-bind:filtered-card-list="filteredCardList" v-on:openPicture="openPicture"></cardlist>
     <!-- 検索画面 -->
     <template v-if="isSearchScreen">
       <overlay-search v-bind:display-pack="displayPack" v-bind:display-type="displayType" v-on:closeSearchOverlay="closeSearchOverlay"></overlay-search>
@@ -181,6 +181,9 @@ export default {
 
 <style scoped lang="scss">
 .container {
+  width: 100%;
+}
+.container-cardlist{
   width: 100%;
 }
 </style>

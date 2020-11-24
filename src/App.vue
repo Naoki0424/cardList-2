@@ -16,6 +16,6 @@ export default {
 
 <style>
 body {
-  /* background-color: #AA0066; */
+  /* background-color: #EEFFFF; */
 }
 </style>
