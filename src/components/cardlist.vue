@@ -34,11 +34,10 @@ export default {
 .cardlist-area {
   justify-content: center;
   display: grid;
-  /* background-color: #AAAAAA; */
 }
 .cardlist {
   border-radius: 10px;
-  margin: 5px 0px;
+  margin: 5px 5px;
   text-align: center;
   cursor: pointer;
   background-size: 100% 100%;
@@ -60,7 +59,7 @@ export default {
 /* タブレット想定 */
 @media only screen and (min-width: 600px) and (max-width: 1279px) {
   .cardlist-area {
-    grid-template-columns: repeat(4, 150px);
+    grid-template-columns: repeat(4, 160px);
   }
   .cardlist {
     height: 200px;
@@ -70,7 +69,7 @@ export default {
 /* PC想定 */
 @media only screen and (min-width:1280px) {
   .cardlist-area {
-    grid-template-columns: repeat(5, 150px);
+    grid-template-columns: repeat(5, 160px);
   }
   .cardlist {
     height: 200px;

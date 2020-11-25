@@ -1,15 +1,13 @@
 <template>
-  <div class="container">
-    <!-- ヘッダー -->
-    <headder v-bind:is-serch-btn-hidden="isSerchBtnHidden" v-on:openSearchOverlay="openSearchOverlay"></headder>
+  <div class="main-content">
     <!-- 検索 -->
-    <search-container></search-container>
+    <search-container v-bind:display-pack="displayPack" v-bind:display-type="displayType" v-bind:search-count="filteredCardList.length" v-on:openSearchOverlay="openSearchOverlay"></search-container>
     <!-- カードりすと -->
     <cardlist class="container-cardlist" v-bind:filtered-card-list="filteredCardList" v-on:openPicture="openPicture"></cardlist>
     <!-- 検索画面 -->
-    <!-- <template v-if="isSearchScreen">
+    <template v-if="isSearchScreen">
       <overlay-search v-bind:display-pack="displayPack" v-bind:display-type="displayType" v-on:closeSearchOverlay="closeSearchOverlay"></overlay-search>
-    </template> -->
+    </template>
     <!-- 画像拡大 -->
     <template v-if="isShowImage">
       <overlay-picture v-bind:show-image-no="showImageNo" v-bind:card-list="cardList" v-on:closePicture="closePicture"></overlay-picture>
@@ -19,19 +17,17 @@
 
 <script>
 import cardlist from './cardlist.vue'
-import headder from './headder.vue'
 import overlayPicture from './overlay-picture.vue'
-import overlaySearch from './overlay-search.vue'
 import searchContainer from './searchContainer.vue'
+import overlaySearch from './overlay-search.vue'
 // import axios from 'axios'
 export default {
   name: 'container',
   components: {
-    'headder': headder,
     'cardlist': cardlist,
     'overlay-picture': overlayPicture,
-    'overlay-search': overlaySearch,
-    'search-container': searchContainer
+    'search-container': searchContainer,
+    'overlay-search': overlaySearch
   },
   data: function () {
     return {
@@ -67,25 +63,9 @@ export default {
   },
   created: function () {
     console.log('created：開始')
-    // var db = firebase.firestore();
-    //
-    // db.collection('cardList').get().then(function(querySnapshot) {
-    //   console.log('データ取得完了cardListにデータを設定します');
-    //   this.cardList = querySnapshot.docs.map(function(doc, index) {
-    //     return Object.assign(doc.data(), {id: doc.id}, {no: index});
-    //   });
-    //   console.log('データ表示');
-    //   this.cardList.forEach(function(doc) {
-    //     console.log(doc);
-    //   });
-    // }.bind(this));
     const axios = require('axios')
-    // const jsonpAdapter = require('axios-jsonp')
-    // axios.get('http://localhost:8080/static/cardListJSon.json').then(function (response) {
     console.log('URL：', process.env.VUE_APP_JSON_NM)
-    // axios.get('static/cardListJSon.json').then(function (response) {
     axios.get(process.env.VUE_APP_JSON_NM).then(function (response) {
-      // axios.get(process.env.VUE_APP_URL + 'static/cardListJSon.json').then(function (response) {
       console.log('JSON取得開始')
       this.cardList = response.data
       console.log(this.cardList)
@@ -183,12 +163,41 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.container {
-  width: 100%;
+<style scoped>
+
+.main-content {
+  background-color: #EEEEEE;
+  /* width: 100%; */
+  /* width: 850px; */
+  /* 中央よせ */
+  margin-left: auto;
+  margin-right: auto;
 }
-.container-cardlist{
-  width: 100%;
-  // background-color: #AAAAAA;
+
+.main-content:before {
+  content: "";
+  display: block;
+  padding-top: 1%;
+}
+
+/* スマホ想定 */
+@media only screen and (max-width: 599px) {
+  .main-content {
+    width: 100%;
+  }
+}
+
+/* タブレット想定 */
+@media only screen and (min-width: 600px) and (max-width: 1279px) {
+  .main-content {
+    width: 690px;
+  }
+}
+
+/* PC想定 */
+@media only screen and (min-width:1280px) {
+  .main-content {
+    width: 850px;
+  }
 }
 </style>
