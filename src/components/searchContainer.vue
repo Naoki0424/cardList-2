@@ -1,5 +1,5 @@
 <template>
-  <div class="search-container-area"　:class="{'test': scrollY > 122}" >
+  <div class="search-container-area"　:class="{'sticky': scrollY > 122}" >
     <div class="search-container">
       <div class="count">検索結果 {{searchCount}} <span class="smallFont">件</span>：{{this.scrollY}}</div>
       <template v-for="pack in displayPack" v-if="pack.checked">
@@ -97,38 +97,34 @@ export default {
   background-color: #FFFFFF;
 }
 
-.test {
+.sticky {
   position: sticky;
   top: 0;
   z-index: 100;
 
   background-color: #EEEEEE;
-  width: 100%;
-  margin: 0 -500%;
-  padding: 0 500%;
   height: 100%;
 }
 
 
 /* スマホ想定 */
 @media only screen and (max-width: 599px) {
-  /* .search-container-area {
-    width: 100%;
-  } */
+  .sticky {
+    // width: 300px;
+  }
 }
 
 /* タブレット想定 */
 @media only screen and (min-width: 600px) and (max-width: 1279px) {
-  /* .search-container-area {
-    width: 600px;
-  } */
+  .sticky {
+    width: 100%;
+    margin: 0 -500%;
+    padding: 0 500%;
+  }
 }
 
 /* PC想定 */
 @media only screen and (min-width:1280px) {
-  /* .search-container-area {
-    width: 750px;
-  } */
   .button:hover {
     animation: flash 2s forwards;
   }
@@ -137,6 +133,12 @@ export default {
     0% { background: #20b2aa; }
     10% { background: #96e9e6; }
     100% { background: #20b2aa; }
+  }
+
+  .sticky {
+    width: 100%;
+    margin: 0 -500%;
+    padding: 0 500%;
   }
 }
 </style>
