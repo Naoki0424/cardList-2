@@ -27,7 +27,6 @@ export default {
   width: 100%;
   padding: 5px 0px 0px 0px;
   margin-bottom: 10px;
-  position: relative;
 }
 
 .title {

@@ -1,7 +1,7 @@
 <template>
-  <div class="search-container-area">
+  <div class="search-container-area"　:class="{'test': scrollY > 122}" >
     <div class="search-container">
-      <div class="count">検索結果 {{searchCount}} <span class="smallFont">件</span></div>
+      <div class="count">検索結果 {{searchCount}} <span class="smallFont">件</span>：{{this.scrollY}}</div>
       <template v-for="pack in displayPack" v-if="pack.checked">
         <div class="buttonPack" v-on:click.prevent="$emit('openSearchOverlay')">＋ {{pack.name}}</div>
       </template>
@@ -9,7 +9,6 @@
         <div class="buttonType" v-on:click.prevent="$emit('openSearchOverlay')">＋ {{type.name}}</div>
       </template>
       <div class="buttonCriteria" v-on:click.prevent="$emit('openSearchOverlay')">＋ 条件</div>
-      <div class="buttonCriteria">クリア</div>
     </div>
   </div>
 </template>
@@ -18,6 +17,20 @@
 export default {
   name: 'search-container',
   props: ['displayPack', 'displayType', 'searchCount'],
+  data: function () {
+    return {
+      // 現在のスクロール位置
+      scrollY: 0
+    }
+  },
+  mounted: function() {
+    console.log('mounted：開始')
+    // スクロールイベントを追加
+    document.onscroll = (e) => {
+      this.scrollY = document.documentElement.scrollTop || document.body.scrollTop
+    }
+    console.log('mounted：終了')
+  },
   methods: {
     getSearchOptionPackClassNm: function (id) {
       return 'optionPack' + id
@@ -32,11 +45,17 @@ export default {
 
 <style scoped lang="scss">
 .search-container-area {
-  /* background-color: #AAAAAA; */
-  width: 100%;
-  position: relative;
-  margin: 5px 5px;
+  // width: 100%;
+  margin: 5px 5px 10px 5px;
+  padding: 5px 5px;
+  background-color: #EEEEEE;
 }
+
+// .sticky {
+//   position: sticky;
+//   top: 0;
+//   z-index: 1;
+// }
 
 .count {
   font-size: 30px;
@@ -46,9 +65,8 @@ export default {
 }
 
 .search-container {
-  width: 95%;
+  width: 100%;
   height: 100%;
-
 }
 
 .button {
@@ -77,6 +95,18 @@ export default {
   @extend .button;
   color: #4689FF;
   background-color: #FFFFFF;
+}
+
+.test {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background-color: #EEEEEE;
+  width: 100%;
+  margin: 0 -500%;
+  padding: 0 500%;
+  height: 100%;
 }
 
 

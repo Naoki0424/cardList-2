@@ -31,8 +31,6 @@ export default {
   },
   data: function () {
     return {
-      // 現在のスクロール１
-      scrollY: 0,
       // 検索ボタンの表示有無
       isSerchBtnHidden: false,
       // 検索画面表示有無
@@ -62,6 +60,7 @@ export default {
     }
   },
   created: function () {
+    // 表示データをJSONより取得
     console.log('created：開始')
     const axios = require('axios')
     console.log('URL：', process.env.VUE_APP_JSON_NM)
@@ -74,22 +73,26 @@ export default {
     console.log('created：終了')
   },
   methods: {
+    // 検索画面表示イベント
     openSearchOverlay: function () {
       this.isSerchBtnHidden = true
       this.isSearchScreen = true
       document.addEventListener('mousewheel', this.noScroll, { passive: false })
       console.log('イベントが実行されました（openSearchOverlay）')
     },
+    // 検索画面非表示イベント
     closeSearchOverlay: function () {
       this.isSerchBtnHidden = false
       this.isSearchScreen = false
       document.removeEventListener('mousewheel', this.noScroll, { passive: false })
       console.log('イベントが実行されました（closeSearchOverlay）')
     },
+    // スクロール停止
     noScroll: function (event) {
       event.preventDefault()
       console.log('イベントが実行されました（noScroll）')
     },
+    // 画像拡大表示イベント
     openPicture: function (no, flg) {
       console.log('イベントが開始しました（openPicture） => no：', no)
       if (!flg) {
@@ -101,6 +104,7 @@ export default {
       document.addEventListener('mousewheel', this.noScroll, { passive: false })
       console.log('イベントが終了しました（openPicture）')
     },
+    // 画像拡大非表示イベント
     closePicture: function () {
       console.log('イベントが開始しました（closePicture）')
       this.isSerchBtnHidden = false
@@ -108,6 +112,7 @@ export default {
       document.removeEventListener('mousewheel', this.noScroll, { passive: false })
       console.log('イベントが終了しました（closePicture）')
     },
+    // パックリストを取得する
     getDisplayPackList: function () {
       var newList = []
       for (var i = 0; i < this.displayPack.length; i++) {
@@ -117,6 +122,7 @@ export default {
       }
       return newList
     },
+    // タイプリスト（モンスター、魔法、罠等）を取得する
     getDisplayTypeList: function () {
       var newList = []
       for (var i = 0; i < this.displayType.length; i++) {
@@ -166,9 +172,7 @@ export default {
 <style scoped>
 
 .main-content {
-  background-color: #EEEEEE;
-  /* width: 100%; */
-  /* width: 850px; */
+  /* background-color: #EEEEEE; */
   /* 中央よせ */
   margin-left: auto;
   margin-right: auto;
