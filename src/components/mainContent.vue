@@ -1,7 +1,7 @@
 <template>
   <div class="main-content">
     <!-- 検索 -->
-    <search-container v-bind:display-pack="displayPack" v-bind:display-type="displayType" v-bind:search-count="filteredCardList.length" v-on:openSearchOverlay="openSearchOverlay"></search-container>
+    <search-container v-bind:display-pack="displayPack" v-bind:display-type="displayType" v-bind:search-count="filteredCardList.length" v-bind:scroll-y="scrollY" v-bind:is-top-btn-hidden="isTopBtnHidden"v-on:openSearchOverlay="openSearchOverlay"></search-container>
     <!-- カードりすと -->
     <cardlist class="container-cardlist" v-bind:filtered-card-list="filteredCardList" v-on:openPicture="openPicture"></cardlist>
     <!-- 検索画面 -->
@@ -31,8 +31,10 @@ export default {
   },
   data: function () {
     return {
+      // 現在のスクロール位置
+      scrollY: 0,
       // 検索ボタンの表示有無
-      isSerchBtnHidden: false,
+      isTopBtnHidden: false,
       // 検索画面表示有無
       isSearchScreen: false,
       // 画像オーバーレイの表示有無
@@ -59,6 +61,14 @@ export default {
       position: 0
     }
   },
+  mounted: function() {
+    console.log('mounted：開始')
+    // スクロールイベントを追加
+    document.onscroll = (e) => {
+      this.scrollY = document.documentElement.scrollTop || document.body.scrollTop
+    }
+    console.log('mounted：終了')
+  },
   created: function () {
     // 表示データをJSONより取得
     console.log('created：開始')
@@ -75,14 +85,14 @@ export default {
   methods: {
     // 検索画面表示イベント
     openSearchOverlay: function () {
-      this.isSerchBtnHidden = true
+      this.isTopBtnHidden = true
       this.isSearchScreen = true
       document.addEventListener('mousewheel', this.noScroll, { passive: false })
       console.log('イベントが実行されました（openSearchOverlay）')
     },
     // 検索画面非表示イベント
     closeSearchOverlay: function () {
-      this.isSerchBtnHidden = false
+      this.isTopBtnHidden = false
       this.isSearchScreen = false
       document.removeEventListener('mousewheel', this.noScroll, { passive: false })
       console.log('イベントが実行されました（closeSearchOverlay）')
@@ -98,7 +108,7 @@ export default {
       if (!flg) {
         return
       }
-      this.isSerchBtnHidden = true
+      this.isTopBtnHidden = true
       this.isShowImage = true
       this.showImageNo = no
       document.addEventListener('mousewheel', this.noScroll, { passive: false })
@@ -107,7 +117,7 @@ export default {
     // 画像拡大非表示イベント
     closePicture: function () {
       console.log('イベントが開始しました（closePicture）')
-      this.isSerchBtnHidden = false
+      this.isTopBtnHidden = false
       this.isShowImage = false
       document.removeEventListener('mousewheel', this.noScroll, { passive: false })
       console.log('イベントが終了しました（closePicture）')
