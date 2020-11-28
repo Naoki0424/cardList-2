@@ -86,15 +86,15 @@ input{ font-size:16px; }
     grid-template-columns: 20% 80%;
   }
   .catergoryPack{grid-area: a; background-color: #EEEEEE; border-bottom: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC;}
-  .optionPackkp01{grid-area: b; border-bottom: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC;}
-  .optionPackkp02{grid-area: c; border-bottom: 1px solid #CCCCCC;}
-  .optionPackcp01{grid-area: d; border-bottom: 1px solid #CCCCCC;}
-  .optionPackkp03{grid-area: e; border-bottom: 1px solid #CCCCCC;}
+  .optionPackkp01{grid-area: b; border-top: 1px solid #CCCCCC; height: 50px;}
+  .optionPackkp02{grid-area: c; height: 50px;}
+  .optionPackcp01{grid-area: d; height: 50px;}
+  .optionPackkp03{grid-area: e; border-bottom: 1px solid #CCCCCC; height: 50px;}
   .catergoryType{grid-area: f; background-color: #EEEEEE; border-bottom: 1px solid #CCCCCC;}
-  .optionType00{grid-area: g; border-bottom: 1px solid #CCCCCC;}
-  .optionType01{grid-area: h; border-bottom: 1px solid #CCCCCC;}
-  .optionType02{grid-area: i; border-bottom: 1px solid; border-color: #CCCCCC;}
-  .optionType03{grid-area: j; border-bottom: 1px solid; border-color: #CCCCCC;}
+  .optionType00{grid-area: g; height: 50px;}
+  .optionType01{grid-area: h; height: 50px;}
+  .optionType02{grid-area: i; height: 50px;}
+  .optionType03{grid-area: j; border-bottom: 1px solid; border-color: #CCCCCC; height: 50px;}
 }
 
 /* スマホ以外想定 */
