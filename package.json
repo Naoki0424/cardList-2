@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --mode development",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "doc:gen": "rm -rf website && npx vuese gen",
+    "doc:serve": "vuese serve --open",
+    "doc": "npm run doc:gen && npm run doc:serve"
   },
   "dependencies": {
+    "@vuese/cli": "^2.14.0",
     "core-js": "^3.6.5",
     "node-sass": "^4.14.1",
     "vue": "^2.6.11",

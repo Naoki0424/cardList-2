@@ -1,5 +1,3 @@
-# test-sass
-
 ## Project setup
 ```
 npm install
@@ -15,8 +13,5 @@ npm run serve
 npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### テスト追加#1
-### テスト追加#3
+### 注意点
+画像はRushRushRushを使っておっことす

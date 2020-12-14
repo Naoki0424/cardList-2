@@ -9,7 +9,10 @@
 <script>
 import headder from './headder.vue'
 import mainContent from './mainContent.vue'
-// import axios from 'axios'
+/**
+ * @vuese
+ * The most basic Vue
+ */
 export default {
   name: 'container',
   components: {

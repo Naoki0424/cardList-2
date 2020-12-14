@@ -18,13 +18,24 @@
 </template>
 
 <script>
+/**
+ * @vuese
+ * orver lay serch
+ * Starts when A starts up
+ */
 export default {
   name: 'overlay-search',
   props: ['displayPack', 'displayType'],
   methods: {
+    // @vuese
+    // Assign an ID
+    // @arg none
     getSearchOptionPackClassNm: function (id) {
       return 'optionPack' + id
     },
+    // @vuese
+    // Assign an ID
+    // @arg none
     getSearchOptionTypeClassNm: function (id) {
       return 'optionType' + id
     }

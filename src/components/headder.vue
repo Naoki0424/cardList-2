@@ -5,6 +5,10 @@
 </template>
 
 <script>
+/**
+ * @vuese
+ * Where to write the title
+ */
 export default {
   name: 'headder',
   data: function () {
@@ -16,8 +20,6 @@ export default {
   created: function () {
     this.testH = window.innerHeight
     this.testW = window.innerzWidth
-  // ]    this.testH = window.outerHeight
-  //     this.testW = window.outerWidth
   }
 }
 </script>

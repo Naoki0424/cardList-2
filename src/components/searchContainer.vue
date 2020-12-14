@@ -17,6 +17,10 @@
 </template>
 
 <script>
+/**
+ * @vuese
+ * Search Vue
+ */
 export default {
   name: 'search-container',
   props: ['displayPack', 'displayType', 'searchCount', 'scrollY', 'isTopBtnHidden'],
@@ -27,9 +31,15 @@ export default {
     }
   },
   methods: {
+    // @vuese
+    // Assign an ID
+    // @arg none
     getSearchOptionPackClassNm: function (id) {
       return 'optionPack' + id
     },
+    // @vuese
+    // Assign an ID
+    // @arg none
     getSearchOptionTypeClassNm: function (id) {
       return 'optionType' + id
     }

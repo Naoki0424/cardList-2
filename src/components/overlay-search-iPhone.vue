@@ -9,16 +9,24 @@
 </template>
 
 <script>
+/**
+ * @vuese
+ * unused
+ */
 export default {
-  name: 'overlay-search',
+  name: 'overlay-search-iPhone',
   props: ['displayList'],
   created: function () {
     console.log(this.displayList)
   },
   methods: {
+    // @vuese
+    // @arg id
     getSearchOptionPackClassNm: function (id) {
       return 'optionPack' + id
     },
+    // @vuese
+    // @arg id
     getSearchOptionTypeClassNm: function (id) {
       return 'optionType' + id
     }
