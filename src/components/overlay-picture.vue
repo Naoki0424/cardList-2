@@ -5,10 +5,18 @@
 </template>
 
 <script>
+/**
+ * @vuese
+ * orver lay getPicture
+ * Starts when enlarging Image
+ */
 export default {
   name: 'overlay-picture',
   props: ['cardList', 'showImageNo'],
   methods: {
+    // @vuese
+    // Get a image 
+    // @arg none
     getPicture: function () {
       console.log(this.cardList[this.showImageNo].url)
       return { 'background-image': 'url("' + this.cardList[this.showImageNo].url + '")' }

@@ -22,9 +22,12 @@ import overlayPicture from './overlay-picture.vue'
 import searchContainer from './searchContainer.vue'
 import overlaySearch from './overlay-search.vue'
 import overlaySearchIPhone from './overlay-search-iPhone.vue'
-// import axios from 'axios'
+/**
+ * @vuese
+ * The main Vue
+ */
 export default {
-  name: 'container',
+  name: 'mainContent',
   components: {
     'cardlist': cardlist,
     'overlay-picture': overlayPicture,
@@ -86,26 +89,34 @@ export default {
     console.log('created：終了')
   },
   methods: {
-    // 検索画面表示イベント
+    // @vuese
+    // Search screen display event
+    // @arg none
     openSearchOverlay: function () {
       this.isTopBtnHidden = true
       this.isSearchScreen = true
       document.addEventListener('mousewheel', this.noScroll, { passive: false })
       console.log('イベントが実行されました（openSearchOverlay）')
     },
-    // 検索画面非表示イベント
+    // @vuese
+    // Search screen hidden event
+    // @arg none
     closeSearchOverlay: function () {
       this.isTopBtnHidden = false
       this.isSearchScreen = false
       document.removeEventListener('mousewheel', this.noScroll, { passive: false })
       console.log('イベントが実行されました（closeSearchOverlay）')
     },
-    // スクロール停止
+    // @vuese
+    // Stop scrolling
+    // @arg event
     noScroll: function (event) {
       event.preventDefault()
       console.log('イベントが実行されました（noScroll）')
     },
-    // 画像拡大表示イベント
+    // @vuese
+    // Enlarge the image
+    // @arg no flg
     openPicture: function (no, flg) {
       console.log('イベントが開始しました（openPicture） => no：', no)
       if (!flg) {
@@ -117,7 +128,9 @@ export default {
       document.addEventListener('mousewheel', this.noScroll, { passive: false })
       console.log('イベントが終了しました（openPicture）')
     },
-    // 画像拡大非表示イベント
+    // @vuese
+    // Stop enlarging the image
+    // @arg no flg
     closePicture: function () {
       console.log('イベントが開始しました（closePicture）')
       this.isTopBtnHidden = false
@@ -125,7 +138,9 @@ export default {
       document.removeEventListener('mousewheel', this.noScroll, { passive: false })
       console.log('イベントが終了しました（closePicture）')
     },
-    // パックリストを取得する
+    // @vuese
+    // Get the packList
+    // @arg none
     getDisplayPackList: function () {
       var newList = []
       for (var i = 0; i < this.displayPack.length; i++) {
@@ -135,7 +150,9 @@ export default {
       }
       return newList
     },
-    // タイプリスト（モンスター、魔法、罠等）を取得する
+    // @vuese
+    // Get the typeList
+    // @arg none
     getDisplayTypeList: function () {
       var newList = []
       for (var i = 0; i < this.displayType.length; i++) {

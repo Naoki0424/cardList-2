@@ -6,7 +6,10 @@
 
 <script lang="ts">
 import longpress from 'vue-longpress';
-
+/**
+ * @vuese
+ * cardList vue
+ */
 export default {
   name: 'cardlist',
   components: {'longpress': longpress},
@@ -17,12 +20,21 @@ export default {
     }
   },
   methods: {
+    // @vuese
+    // Creating a background image
+    // @arg
     getUrl: function (url) {
       return { 'background-image': 'url("' + url + '")' }
     },
+    // @vuese
+    // Processing when touch is done
+    // @arg none
     touchStart: function () {
       this.isTouch = true
     },
+    // @vuese
+    // Processing when touch move is done
+    // @arg none
     touchMove: function () {
       this.isTouch = false
     }
