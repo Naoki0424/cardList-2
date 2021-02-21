@@ -14,4 +14,5 @@ npm run build
 ```
 
 ### 注意点
-画像はRushRushRushを使っておっことす
+遊戯王カードの画像は【Scraping YuGiOh】を使ってWebサイトからダウンロードした
+追加のデータが欲しい場合は【Scraping YuGiOh】を使ってダウンロードする
